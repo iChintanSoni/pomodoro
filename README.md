@@ -1,6 +1,14 @@
-# node-express-react-app-template
+# pomodoro
 
-This is template for node-express-react web app with approriate wiring / proxying
+### productivity tool built using React, Node and a lot of ❤️
+
+Inspirations:
+https://caffeinated-pomodoro-clock.netlify.app[
+https://pomofocus.io
+
+What is pomodoro technique?
+https://en.wikipedia.org/wiki/Pomodoro_Technique
+
 
 # how to run?
 
