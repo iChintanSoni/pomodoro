@@ -3,8 +3,8 @@
 ### productivity tool built using React, Node and a lot of ❤️
 
 Inspirations:
-https://caffeinated-pomodoro-clock.netlify.app[
-https://pomofocus.io
+1. https://caffeinated-pomodoro-clock.netlify.app
+2. https://pomofocus.io
 
 What is pomodoro technique?
 https://en.wikipedia.org/wiki/Pomodoro_Technique
