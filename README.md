@@ -9,6 +9,10 @@ Inspirations:
 What is pomodoro technique?
 https://en.wikipedia.org/wiki/Pomodoro_Technique
 
+# Goals:
+1. Learn and use best industry standards for React (hooks, redux, functional components) and Node
+2. Build and publish web apps
+3. Build and publish web extensions
 
 # how to run?
 
