@@ -1,0 +1,27 @@
+
+
+.timer-root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    gap: 2rem;
+}
+
+.timer {
+    margin: 0;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    font-weight: 300;
+    font-size: 6rem;
+    line-height: 1.167;
+    letter-spacing: -0.01562em;
+    color: #9c27b0;
+}
+
+.timer-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
