@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "iPomo",
+  "name": "iPomo - timer & focus companion",
   "icons": [
     {
       "src": "favicon.ico",
