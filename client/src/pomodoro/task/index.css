@@ -1,0 +1,71 @@
+@import url("./../../index.css");
+
+.Task {
+  display: flex;
+  min-width: 25rem;
+  padding: 2rem;
+  gap: 1rem;
+  height: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: var(--backdrop-filter);
+  border-radius: 1rem;
+  border: 0.1rem solid rgba(255, 255, 255, var(--transparency-regular));
+
+  .material-symbols-outlined-1 {
+    color: var(--font-color-enabled);
+    font-size: 4rem;
+  }
+
+  .h6 {
+    color: white;
+    cursor: default;
+  }
+
+  .sub-title-1 {
+    width: 22rem;
+    text-align: center;
+    color: var(--font-color-enabled);
+    cursor: pointer;
+  }
+
+  .caption {
+    color: var(--font-color-enabled);
+    cursor: default;
+  }
+
+  .input-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    .input {
+      width: 20rem;
+      background: var(--background);
+      border: none;
+      padding: 1rem;
+      border-radius: 1rem;
+      color: white;
+      font-size: medium;
+
+      &::placeholder {
+        color: var(--font-color-enabled);
+      }
+
+      &:focus-visible {
+        outline: unset;
+      }
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
+}

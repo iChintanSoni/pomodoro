@@ -1,0 +1,8 @@
+.TabGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: min-content;
+  gap: 0.5rem;
+}
