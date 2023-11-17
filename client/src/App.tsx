@@ -1,38 +1,33 @@
-import * as React from 'react';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import { Router } from './Router';
-import { Provider } from 'react-redux';
-import { store } from './store';
-import { purple } from '@mui/material/colors';
-import { green } from '@mui/material/colors';
-import { BrowserRouter } from 'react-router-dom';
+import "./App.css";
+import useAudio from "./hooks/useAudio";
+import { Home } from "./home/Home";
+import IconButton from "./components/IconButton";
+import { useState } from "react";
 
 export default function App() {
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-
-  const theme = React.useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode: prefersDarkMode ? 'dark' : 'light',
-          primary: purple,
-          secondary: green
-        },
-        spacing: 2
-      }),
-    [prefersDarkMode],
+  const { isPlaying, play, pause } = useAudio(
+    "https://cdn.pixabay.com/download/audio/2021/09/06/audio_37aad22374.mp3"
   );
-
+  const [musicIcon, setMusicIcon] = useState("music_off");
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Provider store={store}>
-        <BrowserRouter>
-          <Router />
-        </BrowserRouter>
-      </Provider>
-    </ThemeProvider>
+    <div className="App">
+      <div className="Header">
+        <IconButton
+          icon={musicIcon}
+          onClick={() => {
+            if (isPlaying()) {
+              pause();
+              setMusicIcon("music_off");
+            } else {
+              play();
+              setMusicIcon("music_note");
+            }
+          }}
+        ></IconButton>
+      </div>
+      <div className="home">
+        <Home />
+      </div>
+    </div>
   );
 }

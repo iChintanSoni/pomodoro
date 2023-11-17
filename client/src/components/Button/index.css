@@ -1,0 +1,17 @@
+@import "./../../index.css";
+
+.Button {
+    background: var(--background);
+    backdrop-filter: var(--backdrop-filter);
+    min-width: fit-content;
+    padding-inline-start: 1.5rem;
+    padding-inline-end: 1.5rem;
+    height: 2rem;
+    border-radius: 1rem;
+    border: 0.1rem solid rgba(255, 255, 255, var(--transparency-regular));
+    color: var(--font-color-enabled);
+
+    &:disabled {
+        color: var(--font-color-disabled);
+    }
+}
