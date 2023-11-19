@@ -38,13 +38,13 @@
 .h6 {
   font-family: var(--font-family);
   font-weight: var(--medium);
-  font-size: 20px;
   letter-spacing: 0.15px;
+  padding: 0.25rem;
 }
 
 .sub-title-1 {
   font-family: var(--font-family);
-  font-weight: var(--normal);
+  font-weight: var(--medium);
   font-size: 16px;
   letter-spacing: 0.15px;
 }

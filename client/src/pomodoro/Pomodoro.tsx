@@ -12,15 +12,15 @@ type TimerType = {
 
 const timerTypes: TimerType[] = [
   {
-    value: "Pomodoro",
+    value: "pomodoro",
     countdown: 25 * 60 * 1000,
   },
   {
-    value: "Short Break",
+    value: "mini break",
     countdown: 5 * 60 * 1000,
   },
   {
-    value: "Long Break",
+    value: "long break",
     countdown: 10 * 60 * 1000,
   },
 ];
