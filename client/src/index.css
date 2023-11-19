@@ -1,74 +1,84 @@
 body {
-    margin: 0;
-    font-size: 16px;
-    font-family: 'Montserrat', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
-    /* Font Family */
-    --font-family: 'Montserrat';
+  /* Font Family */
+  --font-family: "Montserrat";
 
-    /* Font Weights */
-    --thin: 100;
-    --extra-light: 200;
-    --light: 300;
-    --normal: 400;
-    --medium: 500;
-    --semi-bold: 600;
-    --bold: 700;
-    --extra-bold: 800;
-    --black: 900;
+  /* Font Weights */
+  --thin: 100;
+  --extra-light: 200;
+  --light: 300;
+  --normal: 400;
+  --medium: 500;
+  --semi-bold: 600;
+  --bold: 700;
+  --extra-bold: 800;
+  --black: 900;
 
-    /* Font Color */
-    --font-color-enabled: rgba(255, 255, 255, calc(var(--transparency-regular) + 0.5));
-    --font-color-disabled: rgba(255, 255, 255, calc(var(--transparency-regular) - 0.3));
+  /* Font Color */
+  --font-color-enabled: rgba(
+    255,
+    255,
+    255,
+    calc(var(--transparency-regular) + 0.5)
+  );
+  --font-color-disabled: rgba(
+    255,
+    255,
+    255,
+    calc(var(--transparency-regular) - 0.3)
+  );
 
-    /* Transparency */
-    --transparency-regular: 0.50;
+  /* Transparency */
+  --transparency-regular: 0.5;
 
-    /* Background */
-    --background: rgba(255, 255, 255, calc(var(--transparency-regular) / 2));
-    --backdrop-filter: blur(0.10rem);
+  /* Background */
+  --background: rgba(255, 255, 255, calc(var(--transparency-regular) / 2));
+  --backdrop-filter: blur(0.1rem);
 }
 
 h1 {
-    font-family: var(--font-family);
-    font-weight: var(--light);
-    font-size: 96px;
-    letter-spacing: -1.5px;
+  font-family: var(--font-family);
+  font-weight: var(--light);
+  font-size: 96px;
+  letter-spacing: -1.5px;
 }
 
 h2 {
-    font-family: var(--font-family);
-    font-weight: var(--light);
-    font-size: 60px;
-    letter-spacing: -0.5px;
+  font-family: var(--font-family);
+  font-weight: var(--light);
+  font-size: 60px;
+  letter-spacing: -0.5px;
 }
 
 h3 {
-    font-family: var(--font-family);
-    font-weight: var(--normal);
-    font-size: 48px;
-    letter-spacing: 0px;
+  font-family: var(--font-family);
+  font-weight: var(--normal);
+  font-size: 48px;
+  letter-spacing: 0px;
 }
 
 h4 {
-    font-family: var(--font-family);
-    font-weight: var(--normal);
-    font-size: 34px;
-    letter-spacing: 0.25px;
+  font-family: var(--font-family);
+  font-weight: var(--normal);
+  font-size: 34px;
+  letter-spacing: 0.25px;
 }
 
 h5 {
-    font-family: var(--font-family);
-    font-weight: var(--normal);
-    font-size: 24px;
-    letter-spacing: 0px;
+  font-family: var(--font-family);
+  font-weight: var(--normal);
+  font-size: 24px;
+  letter-spacing: 0px;
 }
 
 h6 {
-    font-family: var(--font-family);
-    font-weight: var(--medium);
-    font-size: 20px;
-    letter-spacing: 0.15px;
+  font-family: var(--font-family);
+  font-weight: var(--medium);
+  padding: 0.25rem;
+  letter-spacing: 0.15px;
 }

@@ -22,14 +22,11 @@ const Task: React.FC<TaskProps> = (props) => {
   };
   return (
     <div className="Task" {...props}>
-      <span className="material-symbols-outlined material-symbols-outlined-1">
-        check_circle
-      </span>
-      <Text variant="h6">{text.length ? "YOUR FOCUS" : "SET YOUR FOCUS"}</Text>
+      <Text variant="h6">UNO FOCUS</Text>
       {text.length === 0 && (
         <Text variant="caption">
-          Focusing on one task at a time can have a huge impact on your
-          productivity.
+          human brain is a uni-processor system. one task, at one time, with
+          complete focus is the goal.
         </Text>
       )}
       <div>
@@ -37,7 +34,7 @@ const Task: React.FC<TaskProps> = (props) => {
           <TaskInput text={text} onSave={onSave} onDiscard={toggleEditable} />
         ) : (
           <Text variant="sub-title-1" onClick={toggleEditable}>
-            {text.length ? text : "Set the one task you'll be focusing on..."}
+            {text.length ? text : "what's that one task today?"}
           </Text>
         )}
       </div>

@@ -11,7 +11,7 @@ export default function App() {
   const [musicIcon, setMusicIcon] = useState("music_off");
   return (
     <div className="App">
-      <div className="Header">
+      <div className="header">
         <IconButton
           icon={musicIcon}
           onClick={() => {
