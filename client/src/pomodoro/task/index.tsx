@@ -29,15 +29,17 @@ const Task: React.FC<TaskProps> = (props) => {
           complete focus is the goal.
         </Text>
       )}
-      <div>
-        {editable ? (
-          <TaskInput text={text} onSave={onSave} onDiscard={toggleEditable} />
-        ) : (
-          <Text variant="sub-title-1" onClick={toggleEditable}>
-            {text.length ? text : "what's that one task today?"}
-          </Text>
-        )}
-      </div>
+      {editable ? (
+        <TaskInput text={text} onSave={onSave} onDiscard={toggleEditable} />
+      ) : (
+        <Text
+          variant="sub-title-1"
+          className="one-task sub-title-1"
+          onClick={toggleEditable}
+        >
+          {text.length ? text : "what's that one task today?"}
+        </Text>
+      )}
     </div>
   );
 };
