@@ -32,7 +32,7 @@ export function Pomodoro() {
     <div className="pomodoro-root">
       <TabGroup value={selected} handleChange={(index) => setSelected(index)}>
         {timerTypes.map((type) => (
-          <Tab label={type.value}></Tab>
+          <Tab label={type.value} key={type.value} />
         ))}
       </TabGroup>
       <Timer duration={timerTypes[selected].countdown} />

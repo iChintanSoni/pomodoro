@@ -1,0 +1,20 @@
+.Surroundings {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+  .surrounding-theme {
+    margin-block: 1rem;
+  }
+
+  .theme-sound {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

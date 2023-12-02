@@ -1,6 +1,7 @@
 @import url("./../../index.css");
 
 .h1 {
+  color: var(--font-color-enabled);
   font-family: var(--font-family);
   font-weight: var(--light);
   font-size: 96px;
@@ -8,6 +9,7 @@
 }
 
 .h2 {
+  color: var(--font-color-enabled);
   font-family: var(--font-family);
   font-weight: var(--light);
   font-size: 60px;
@@ -15,6 +17,7 @@
 }
 
 .h3 {
+  color: var(--font-color-enabled);
   font-family: var(--font-family);
   font-weight: var(--normal);
   font-size: 48px;
@@ -22,6 +25,7 @@
 }
 
 .h4 {
+  color: var(--font-color-enabled);
   font-family: var(--font-family);
   font-weight: var(--normal);
   font-size: 34px;
@@ -29,6 +33,7 @@
 }
 
 .h5 {
+  color: var(--font-color-enabled);
   font-family: var(--font-family);
   font-weight: var(--normal);
   font-size: 24px;
@@ -36,6 +41,7 @@
 }
 
 .h6 {
+  color: var(--font-color-enabled);
   font-family: var(--font-family);
   font-weight: var(--medium);
   letter-spacing: 0.15px;
@@ -43,6 +49,7 @@
 }
 
 .sub-title-1 {
+  color: var(--font-color-enabled);
   font-family: var(--font-family);
   font-weight: var(--medium);
   font-size: 16px;
@@ -50,6 +57,7 @@
 }
 
 .sub-title-2 {
+  color: var(--font-color-enabled);
   font-family: var(--font-family);
   font-weight: var(--medium);
   font-size: 14px;
@@ -57,6 +65,7 @@
 }
 
 .body-1 {
+  color: var(--font-color-enabled);
   font-family: var(--font-family);
   font-weight: var(--normal);
   font-size: 16px;
@@ -64,6 +73,7 @@
 }
 
 .body-2 {
+  color: var(--font-color-enabled);
   font-family: var(--font-family);
   font-weight: var(--normal);
   font-size: 14px;
@@ -75,17 +85,20 @@
   font-weight: var(--medium);
   font-size: 14px;
   letter-spacing: 0.25px;
-  color: inherit;
+  color: var(--font-color-enabled);
 }
 
 .caption {
+  color: var(--font-color-enabled);
   font-family: var(--font-family);
   font-weight: var(--normal);
   font-size: 12px;
   letter-spacing: 0.4px;
+  color: var(--font-color-enabled);
 }
 
 .overline {
+  color: var(--font-color-enabled);
   font-family: var(--font-family);
   font-weight: var(--normal);
   font-size: 10px;
