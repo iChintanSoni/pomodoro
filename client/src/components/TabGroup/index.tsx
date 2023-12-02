@@ -1,33 +1,30 @@
 import "./index.css";
 
-import React, { ReactElement } from "react";
+import React, { ReactElement, ReactNode } from "react";
 import { TabProps } from "./Tab";
 
-interface TabGroupProps
-  extends React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLDivElement>,
-    HTMLDivElement
-  > {
+interface TabGroupProps {
   value: number;
   handleChange: (index: number) => void;
+  children?: ReactNode | undefined;
 }
 
-const index: React.FC<TabGroupProps> = (props) => {
+function TabGroup(props: TabGroupProps) {
   return (
-    <div className="TabGroup" {...props}>
-      {React.Children.map(props.children, (child, index) => {
-        const childElement = child as ReactElement<TabProps>;
-        const childElementProps = childElement.props;
-        return React.cloneElement<TabProps>(childElement, {
-          ...childElementProps,
-          isActive: props.value === index,
-          onClick: () => {
+    <div className="TabGroup">
+      {props.children &&
+        React.Children.map(props.children, (child, index) => {
+          const childElement = child as ReactElement<TabProps>;
+          const childClick = () => {
             props.handleChange(index);
-          },
-        });
-      })}
+          };
+          return React.cloneElement<TabProps>(childElement, {
+            isActive: props.value === index,
+            onClick: childClick,
+          });
+        })}
     </div>
   );
-};
+}
 
-export default index;
+export default TabGroup;

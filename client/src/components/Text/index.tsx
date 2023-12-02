@@ -1,5 +1,5 @@
-import React, { FC } from "react";
 import "./index.css";
+import mergeClassNames from "../util/class.util";
 
 type Variant =
   | "h1"
@@ -24,12 +24,15 @@ interface TextProps
   variant: Variant;
 }
 
-const Index: FC<TextProps> = (props) => {
+function Text(props: TextProps) {
   return (
-    <span className={props.variant} {...props}>
+    <span
+      {...props}
+      className={mergeClassNames(props.variant, props.className)}
+    >
       {props.children}
     </span>
   );
-};
+}
 
-export default Index;
+export default Text;

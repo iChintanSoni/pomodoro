@@ -1,6 +1,5 @@
-import React from "react";
 import "./index.css";
-import useTimer from "./useTimer";
+import useTimer from "../../hooks/useTimer";
 import IconButton from "../../components/IconButton";
 import CircularProgressBar from "../../components/CircularProgressBar";
 
@@ -18,7 +17,7 @@ const msToTime = (duration: number) => {
   return minutes + "m " + seconds + "s";
 };
 
-const Timer: React.FC<TimerProps> = (props) => {
+function Timer(props: TimerProps) {
   const { count, state, start, pause, reset } = useTimer(props.duration);
 
   return (
@@ -42,6 +41,6 @@ const Timer: React.FC<TimerProps> = (props) => {
       </div>
     </div>
   );
-};
+}
 
 export default Timer;

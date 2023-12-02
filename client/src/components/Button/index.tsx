@@ -1,20 +1,18 @@
-import { FC } from "react";
 import "./index.css";
+import mergeClassNames from "../util/class.util";
 
 interface ButtonProps
   extends React.DetailedHTMLProps<
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
-  > {
-  selected?: boolean;
-}
+  > {}
 
-const Button: FC<ButtonProps> = (props) => {
+function Button(props: ButtonProps) {
   return (
-    <button className="Button" {...props}>
+    <button {...props} className={mergeClassNames("Button", props.className)}>
       {props.children}
     </button>
   );
-};
+}
 
 export default Button;

@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
+import "./index.css";
 
 interface CircularProgressBarProps {
   progress: number;
@@ -7,12 +8,12 @@ interface CircularProgressBarProps {
   strokeWidth: number;
 }
 
-const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
+function CircularProgressBar({
   radius = 32,
   strokeWidth = 4,
   progress: input,
   text,
-}) => {
+}: CircularProgressBarProps) {
   const normalizedRadius = radius - strokeWidth * 2;
   const circumference = normalizedRadius * 2 * Math.PI;
   const offsetAngle = -90; // Start progress at -90 degrees
@@ -30,16 +31,6 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
   return (
     <div style={{ position: "relative" }}>
       <svg height={radius * 2} width={radius * 2}>
-        <style>
-          {`
-             .text {
-                 font-family: 'Montserrat', sans-serif;
-                 font-weight: 500;
-                 font-size: 32px;
-                 letter-spacing: 0.15px;
-             }
-           `}
-        </style>
         <circle
           cx={radius}
           cy={radius}
@@ -75,6 +66,6 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
       </svg>
     </div>
   );
-};
+}
 
 export default CircularProgressBar;

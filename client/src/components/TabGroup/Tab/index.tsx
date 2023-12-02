@@ -1,23 +1,23 @@
 import "./index.css";
 import Text from "./../../Text";
+import mergeClassNames from "../../util/class.util";
 
-import React from "react";
-
-export interface TabProps
-  extends React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLDivElement>,
-    HTMLDivElement
-  > {
+export interface TabProps {
   isActive?: boolean;
   label: string;
+  onClick?: () => void;
 }
 
-const index: React.FC<TabProps> = (props) => {
+function Tab(props: TabProps) {
+  const classNames = ["Tab"];
+  if (props.isActive) {
+    classNames.push("active");
+  }
   return (
-    <div {...props} className={`Tab ${props.isActive ? "active" : ""}`}>
+    <div className={mergeClassNames(classNames)} onClick={props.onClick}>
       <Text variant="h6">{props.label}</Text>
     </div>
   );
-};
+}
 
-export default index;
+export default Tab;

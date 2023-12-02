@@ -1,1 +1,8 @@
+@import url("./../../index.css");
 
+.text {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 32px;
+  letter-spacing: 0.15px;
+}

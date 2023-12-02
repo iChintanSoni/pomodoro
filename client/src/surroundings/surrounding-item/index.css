@@ -1,0 +1,10 @@
+.surrounding-theme-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.5rem;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0);
+  border: none;
+}

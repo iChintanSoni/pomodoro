@@ -1,6 +1,6 @@
 import "./index.css";
 
-import React, { memo, useState } from "react";
+import { memo, useState } from "react";
 import Text from "./../../components/Text";
 import IconButton from "./../../components/IconButton";
 
@@ -10,7 +10,7 @@ interface TaskProps
     HTMLDivElement
   > {}
 
-const Task: React.FC<TaskProps> = (props) => {
+function Task(props: TaskProps) {
   const [text, setText] = useState<string>("");
   const [editable, setEditable] = useState<boolean>(false);
   const toggleEditable = () => {
@@ -42,7 +42,7 @@ const Task: React.FC<TaskProps> = (props) => {
       )}
     </div>
   );
-};
+}
 
 interface TaskInputProps
   extends React.DetailedHTMLProps<

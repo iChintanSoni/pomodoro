@@ -1,7 +1,5 @@
 import "./index.css";
 
-import React from "react";
-
 interface IconButtonProps
   extends React.DetailedHTMLProps<
     React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -10,12 +8,12 @@ interface IconButtonProps
   icon: string;
 }
 
-const index: React.FC<IconButtonProps> = (props) => {
+function IconButton(props: IconButtonProps) {
   return (
-    <button className="IconButton" {...props}>
+    <button {...props} className="IconButton">
       <span className="material-symbols-outlined">{props.icon}</span>
     </button>
   );
-};
+}
 
-export default index;
+export default IconButton;
