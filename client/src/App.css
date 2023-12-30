@@ -34,7 +34,7 @@
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.3);
   background-blend-mode: multiply;
-  animation: panning 90s infinite ease;
+  /* animation: panning 90s infinite ease; */
 
   .header {
     flex-direction: row;
