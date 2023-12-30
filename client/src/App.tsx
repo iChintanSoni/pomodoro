@@ -1,58 +1,59 @@
 import "./App.css";
 import IconButton from "./components/IconButton";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Surroundings from "./surroundings";
 import { Close } from "./components/Icons";
-import { Pomodoro } from "./pomodoro/Pomodoro";
-import useStorage from "./hooks/useStorage";
-import { Theme, ThemeContext, themes } from "./theme.context";
+import Pomodoro from "./pomodoro/Pomodoro";
+import SideNav from "./components/SideNav";
+import SideNavHeader from "./components/SideNav/SideNavHeader";
+import SideNavContent from "./components/SideNav/SideNavContent";
+import Notifications from "./notifications";
+import { useAppDispatch, useAppSelector } from "./app.hooks";
+import { toggleEnabled } from "./slices/sound.slice";
 
 export default function App() {
-  const sideNavRef = useRef<HTMLDivElement>(null);
   const [isOpen, setOpen] = useState<boolean>(false);
-  const toggleSideNav = () => {
-    setOpen(!isOpen);
-  };
+  const { theme } = useAppSelector((state) => state.theme);
+  const { enabled: soundEnabled, volume } = useAppSelector(
+    (state) => state.sound
+  );
+  const dispatch = useAppDispatch();
+  const { current: audio } = useRef(new Audio());
 
-  const { theme, updateTheme } = useStorage<Theme>(themes[0]);
+  useEffect(() => {
+    audio.loop = true;
+  }, [audio]);
+
+  useEffect(() => {
+    soundEnabled ? audio.play() : audio.pause();
+  }, [audio, soundEnabled]);
+
+  useEffect(() => {
+    audio.volume = volume;
+  }, [audio, volume]);
+
+  useEffect(() => {
+    audio.src = theme.soundUrl;
+    dispatch(toggleEnabled());
+  }, [dispatch, audio, theme]);
 
   return (
-    <ThemeContext.Provider value={theme}>
-      <div
-        className="App"
-        style={{ backgroundImage: `url(${theme.imageUrl})` }}
-      >
-        <div className="header">
-          <IconButton
-            icon="menu"
-            onClick={() => {
-              toggleSideNav();
-            }}
-          />
-        </div>
-        <div
-          className="elevatedContainer"
-          onClick={toggleSideNav}
-          style={{ visibility: isOpen ? "visible" : "hidden" }}
-        >
-          <div
-            className="side-nav"
-            onClick={(e) => e.stopPropagation()}
-            ref={sideNavRef}
-            style={{ width: isOpen ? "100vw" : "0" }}
-          >
-            <div className="side-nav-header">
-              <IconButton icon={Close} onClick={toggleSideNav} />
-            </div>
-            <div className="side-nav-content">
-              <Surroundings theme={theme} onChange={updateTheme} />
-            </div>
-          </div>
-        </div>
-        <div className="content">
-          <Pomodoro />
-        </div>
+    <div className="App" style={{ backgroundImage: `url(${theme.imageUrl})` }}>
+      <div className="header">
+        <IconButton icon="menu" onClick={() => setOpen(!isOpen)} />
       </div>
-    </ThemeContext.Provider>
+      <SideNav open={isOpen} onClose={() => setOpen(false)}>
+        <SideNavHeader>
+          <IconButton icon={Close} onClick={() => setOpen(false)} />
+        </SideNavHeader>
+        <SideNavContent>
+          <Surroundings />
+          <Notifications />
+        </SideNavContent>
+      </SideNav>
+      <div className="content">
+        <Pomodoro />
+      </div>
+    </div>
   );
 }

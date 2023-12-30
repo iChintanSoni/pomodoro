@@ -19,7 +19,7 @@ const useCounter = (input: number) => {
 type Action = "Start" | "Pause" | "Reset";
 type State = "Started" | "Paused" | "Idle";
 
-const useTimer = (inputTime: number) => {
+const useTimer = (inputTime: number, onFinish: () => void) => {
   const {
     count,
     decrement: decrementCounter,
@@ -42,6 +42,7 @@ const useTimer = (inputTime: number) => {
           if (count > 0) {
             decrementCounter();
           } else {
+            onFinish();
             setAction("Reset");
           }
         }, 1000);

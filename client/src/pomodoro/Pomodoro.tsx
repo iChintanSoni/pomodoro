@@ -1,42 +1,44 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import Timer from "./timer";
 import "./pomodoro.css";
 import TabGroup from "../components/TabGroup";
 import Tab from "./../components/TabGroup/Tab";
 import Task from "./task";
 
-type TimerType = {
-  value: string;
-  countdown: number;
+export type TimerType = {
+  label: string;
+  duration: number;
 };
 
 const timerTypes: TimerType[] = [
   {
-    value: "pomodoro",
-    countdown: 25 * 60 * 1000,
+    label: "pomodoro",
+    duration: 25 * 60 * 1000,
   },
   {
-    value: "mini break",
-    countdown: 5 * 60 * 1000,
+    label: "mini break",
+    duration: 5 * 60 * 1000,
   },
   {
-    value: "long break",
-    countdown: 10 * 60 * 1000,
+    label: "long break",
+    duration: 10 * 60 * 1000,
   },
 ];
 
-export function Pomodoro() {
+function Pomodoro() {
   const [selected, setSelected] = useState(0);
 
   return (
     <div className="pomodoro-root">
       <TabGroup value={selected} handleChange={(index) => setSelected(index)}>
         {timerTypes.map((type) => (
-          <Tab label={type.value} key={type.value} />
+          <Tab label={type.label} key={type.label} />
         ))}
       </TabGroup>
-      <Timer duration={timerTypes[selected].countdown} />
+      <Timer type={timerTypes[selected]} />
       <Task />
     </div>
   );
 }
+
+export default memo(Pomodoro);

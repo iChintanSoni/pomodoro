@@ -4,13 +4,13 @@
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  gap: 1rem;
 
-  .surrounding-theme {
+  .surrounding-theme-section-label {
     margin-block: 1rem;
   }
 
   .theme-sound {
-    margin-top: 2rem;
     display: flex;
     flex-direction: row;
     gap: 1rem;

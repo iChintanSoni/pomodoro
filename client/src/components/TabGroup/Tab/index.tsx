@@ -1,5 +1,4 @@
 import "./index.css";
-import Text from "./../../Text";
 import mergeClassNames from "../../util/class.util";
 
 export interface TabProps {
@@ -15,7 +14,7 @@ function Tab(props: TabProps) {
   }
   return (
     <div className={mergeClassNames(classNames)} onClick={props.onClick}>
-      <Text variant="h6">{props.label}</Text>
+      <span>{props.label}</span>
     </div>
   );
 }

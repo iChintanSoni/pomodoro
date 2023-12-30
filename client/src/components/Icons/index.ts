@@ -11,3 +11,5 @@ export const Pause = "pause";
 export const CheckBoxOutlineBlank = "check_box_outline_blank";
 export const CheckBox = "check_box";
 export const Check = "check";
+export const Notifications = "notifications";
+export const NotificationsOff = "notifications_off";

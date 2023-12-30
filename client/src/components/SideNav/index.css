@@ -1,0 +1,62 @@
+@import url("./../../index.css");
+
+.elevatedContainer {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  backdrop-filter: var(--backdrop-filter);
+  transition: visibility 0.5s ease;
+  z-index: 1;
+}
+
+.SideNav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  backdrop-filter: var(--backdrop-filter);
+  background: rgba(0, 0, 0, 0.5);
+  overflow-x: hidden;
+  transition: width 0.5s ease;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .SideNav {
+    max-width: 600px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .SideNav {
+    max-width: 600px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .SideNav {
+    max-width: 300px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .SideNav {
+    max-width: 300px;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .side-nav {
+    max-width: 300px;
+  }
+}

@@ -1,12 +1,6 @@
-import { createContext } from "react";
+import { createSlice } from "@reduxjs/toolkit";
 
-export interface Theme {
-  label: string;
-  imageUrl: string;
-  soundUrl: string;
-}
-
-export const themes: Theme[] = [
+const themes: Theme[] = [
   {
     label: "Ocean",
     imageUrl:
@@ -30,4 +24,29 @@ export const themes: Theme[] = [
   },
 ];
 
-export const ThemeContext = createContext(themes[0]);
+type Theme = {
+  label: string;
+  imageUrl: string;
+  soundUrl: string;
+};
+
+type ThemeState = {
+  theme: Theme;
+};
+
+const initialState: ThemeState = { theme: themes[0] };
+
+const soundSlice = createSlice({
+  name: "theme",
+  initialState,
+  reducers: {
+    setTheme(state, action) {
+      state.theme = action.payload;
+    },
+  },
+});
+
+export const { setTheme } = soundSlice.actions;
+export { themes };
+export type { Theme };
+export default soundSlice.reducer;

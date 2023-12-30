@@ -1,51 +1,68 @@
 import React from "react";
 import "./index.css";
-import useAudio from "../hooks/useAudio";
 import { MusicNote, MusicOff } from "../components/Icons";
 import Text from "./../components/Text";
 import IconButton from "./../components/IconButton";
 import Divider from "./../components/Divider";
 import Slider from "./../components/Slider";
-import { Theme, themes } from "../theme.context";
 import SurroundingItem from "./surrounding-item";
+import { useAppDispatch, useAppSelector } from "../app.hooks";
+import { toggleEnabled, changeVolume } from "./../slices/sound.slice";
+import { Theme, setTheme, themes } from "./../slices/theme.slice";
 
-interface SurroundingsProps {
-  theme: Theme;
-  onChange: (value: Theme) => void;
-}
+function Surroundings() {
+  const { theme } = useAppSelector((state) => state.theme);
+  const { enabled: soundEnabled, volume } = useAppSelector(
+    (state) => state.sound
+  );
+  const dispatch = useAppDispatch();
 
-function Surroundings({ theme, onChange }: SurroundingsProps) {
-  const { isPlaying, volume, setVolume, togglePlay } = useAudio(theme.soundUrl);
+  const updateTheme = (theme: Theme) => {
+    dispatch(setTheme(theme));
+  };
 
   return (
     <div className="Surroundings">
-      <Text variant="h5" className="surrounding-theme">
-        Theme
-      </Text>
-      {themes.map((surrounding, index) => (
-        <React.Fragment key={surrounding.label}>
-          <SurroundingItem
-            selected={theme.label === surrounding.label}
-            theme={surrounding}
-            onSelected={onChange}
+      <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+        <div>
+          <Text variant="h5" className="surrounding-theme-section-label">
+            Theme
+          </Text>
+        </div>
+        <div>
+          {themes.map((surrounding, index) => (
+            <React.Fragment key={surrounding.label}>
+              <SurroundingItem
+                selected={theme.label === surrounding.label}
+                theme={surrounding}
+                onSelected={updateTheme}
+              />
+              {index < themes.length - 1 && <Divider />}
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+        <Text variant="h5" className="surrounding-theme">
+          Sound
+        </Text>
+        <div className="theme-sound">
+          <IconButton
+            icon={soundEnabled ? MusicOff : MusicNote}
+            onClick={() => dispatch(toggleEnabled())}
           />
-          {index < themes.length - 1 && <Divider />}
-        </React.Fragment>
-      ))}
-      <div className="theme-sound">
-        <IconButton
-          icon={isPlaying ? MusicOff : MusicNote}
-          onClick={togglePlay}
-        />
-        {isPlaying && (
-          <Slider
-            min={0}
-            max={1}
-            step={0.01}
-            value={volume}
-            onChange={(e) => setVolume(e.target.value as unknown as number)}
-          />
-        )}
+          {soundEnabled && (
+            <Slider
+              min={0}
+              max={1}
+              step={0.01}
+              value={volume}
+              onChange={(e) =>
+                dispatch(changeVolume(e.target.value as unknown as number))
+              }
+            />
+          )}
+        </div>
       </div>
     </div>
   );
