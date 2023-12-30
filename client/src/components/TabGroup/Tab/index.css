@@ -6,12 +6,21 @@
   color: var(--font-color-enabled);
   border-radius: 1.25rem;
   transition: background 500ms;
+  text-align: center;
 
   &:hover {
     background: rgba(255, 255, 255, var(--transparency-regular));
     border-radius: 1.25rem;
     color: white;
     cursor: pointer;
+  }
+
+  & span {
+    color: var(--font-color-enabled);
+    font-family: var(--font-family);
+    font-weight: var(--medium);
+    font-size: 1rem;
+    letter-spacing: 0.5px;
   }
 }
 

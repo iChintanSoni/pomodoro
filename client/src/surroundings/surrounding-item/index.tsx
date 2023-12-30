@@ -2,7 +2,7 @@ import "./index.css";
 import Text from "./../../components/Text";
 import Icon from "./../../components/Icon";
 import { Check } from "../../components/Icons";
-import { Theme } from "../../theme.context";
+import { Theme } from "../../slices/theme.slice";
 
 interface SurroundingItemProp {
   selected: boolean;

@@ -1,9 +1,7 @@
 import { useState } from "react";
 
-const key = "Theme";
-
-const useTheme = <T>(initialValue: T) => {
-  const [theme, setTheme] = useState<T>(() => {
+const useStorage = <T>(key: string, initialValue: T) => {
+  const [value, setValue] = useState<T>(() => {
     const fromLocal = window.localStorage.getItem(key);
     if (fromLocal) {
       return JSON.parse(fromLocal) as T;
@@ -12,14 +10,12 @@ const useTheme = <T>(initialValue: T) => {
     }
   });
 
-  const updateTheme = (newValue: T) => {
+  const updateValue = (newValue: T) => {
     window.localStorage.setItem(key, JSON.stringify(newValue));
-    setTheme(() => {
-      return newValue;
-    });
+    setValue(newValue);
   };
 
-  return { theme, updateTheme };
+  return { value, updateValue };
 };
 
-export default useTheme;
+export default useStorage;

@@ -2,9 +2,12 @@ import "./index.css";
 import useTimer from "../../hooks/useTimer";
 import IconButton from "../../components/IconButton";
 import CircularProgressBar from "../../components/CircularProgressBar";
+import { useCallback } from "react";
+import { showNotification } from "../../utils/notification.util";
+import { TimerType } from "../Pomodoro";
 
 interface TimerProps {
-  duration: number;
+  type: TimerType;
 }
 
 const msToTime = (duration: number) => {
@@ -17,20 +20,32 @@ const msToTime = (duration: number) => {
   return minutes + "m " + seconds + "s";
 };
 
-function Timer(props: TimerProps) {
-  const { count, state, start, pause, reset } = useTimer(props.duration);
+function Timer({ type }: TimerProps) {
+  const onFinish = useCallback(() => {
+    showNotification(`Your ${type.label} has finished!`);
+  }, [type.label]);
+  const { count, state, start, pause, reset } = useTimer(
+    type.duration,
+    onFinish
+  );
 
   return (
-    <div className="Timer" {...props}>
+    <div className="Timer">
       <CircularProgressBar
         strokeWidth={4}
         radius={128}
-        progress={(count / props.duration) * 100}
+        progress={(count / type.duration) * 100}
         text={msToTime(count)}
       />
       <div className="timer-actions">
         {(state === "Idle" || state === "Paused") && (
-          <IconButton onClick={start} icon={"play_arrow"}></IconButton>
+          <IconButton
+            onClick={() => {
+              start();
+              showNotification(`Your ${type.label} has started!`);
+            }}
+            icon={"play_arrow"}
+          ></IconButton>
         )}
         {state === "Started" && (
           <IconButton onClick={pause} icon={"pause"}></IconButton>
