@@ -31,11 +31,17 @@ function CircularProgressBar({
   return (
     <div style={{ position: "relative" }}>
       <svg height={radius * 2} width={radius * 2}>
+        <defs>
+          <filter id="blur-filter">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
+          </filter>
+        </defs>
         <circle
           cx={radius}
           cy={radius}
           r={normalizedRadius}
-          fill="transparent"
+          fill="rgba(255, 255, 255, 0.1)"
+          filter="url(#blur-filter)"
           stroke="#FFF"
           strokeOpacity={0.5}
           strokeWidth={strokeWidth}

@@ -2,7 +2,7 @@ import "./App.css";
 import IconButton from "./components/IconButton";
 import { useEffect, useRef, useState } from "react";
 import Surroundings from "./surroundings";
-import { Close } from "./components/Icons";
+import { Close, MusicNote, MusicOff } from "./components/Icons";
 import Pomodoro from "./pomodoro/Pomodoro";
 import SideNav from "./components/SideNav";
 import SideNavHeader from "./components/SideNav/SideNavHeader";
@@ -40,6 +40,10 @@ export default function App() {
   return (
     <div className="App" style={{ backgroundImage: `url(${theme.imageUrl})` }}>
       <div className="header">
+        <IconButton
+          icon={soundEnabled ? MusicOff : MusicNote}
+          onClick={() => dispatch(toggleEnabled())}
+        />
         <IconButton icon="menu" onClick={() => setOpen(!isOpen)} />
       </div>
       <SideNav open={isOpen} onClose={() => setOpen(false)}>
