@@ -25,16 +25,14 @@ function Notifications() {
         style={{
           display: "flex",
           width: "100%",
-          flexDirection: "row",
-          justifyContent: "space-between",
+          flexDirection: "column",
+          lineHeight: 2,
         }}
       >
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <Text variant="h5">Notifications</Text>
-          <Text variant="caption">
-            This will notify you when timers have finished
-          </Text>
-        </div>
+        <Text variant="h5">Notifications</Text>
+        <Text variant="caption">
+          For timely alerts
+        </Text>
         {permission === "granted" && (
           <IconButton
             icon={enabled ? NotificationsOff : NotificationOn}

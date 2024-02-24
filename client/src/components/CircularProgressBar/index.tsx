@@ -14,7 +14,7 @@ function CircularProgressBar({
   progress: input,
   text,
 }: CircularProgressBarProps) {
-  const normalizedRadius = radius - strokeWidth * 2;
+  const normalizedRadius = radius - strokeWidth * 5;
   const circumference = normalizedRadius * 2 * Math.PI;
   const offsetAngle = -90; // Start progress at -90 degrees
   const strokeDashoffset =
